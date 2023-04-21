@@ -1,5 +1,9 @@
 # CaaS platforms comparison
 
+This project will present a comparison between AWS ECS and Azure ACI, using the same container API and running it on each platform.
+
+For the deployment it will be using Terraform and IaC.
+
 ## Deploy the API on ECS
 
 Check here: [ECS](./terraform/ecs/README.md)
