@@ -26,6 +26,7 @@ for I in 0 1; do
   # execute tests and generate the report
   artillery run load-tests/load-test.yml --output load-tests/ecs/ecs-$I.json
   artillery report load-tests/ecs/ecs-$I.json
+  rm -f load-tests/load-test.yml
 done
 
 for I in 2; do
@@ -36,5 +37,6 @@ for I in 2; do
   # execute tests and generate the report
   artillery run load-tests/load-test.yml --output load-tests/ecs/ecs-$I.json
   artillery report load-tests/ecs/ecs-$I.json
+  rm -f load-tests/load-test.yml
 done
 ```
