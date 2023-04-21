@@ -1,0 +1,18 @@
+config:
+  target: "{{API_ENDPOINT}}"
+  phases:
+    - name: Sustained load
+      duration: 300
+      arrivalRate: {{REQUESTS_PER_SECOND}}
+      maxVusers: {{REQUESTS_TOTAL}}
+  ensure:
+    thresholds:
+      # p99 of response time must be <300ms:
+      - "http.response_time.p99": 300
+      # p95 of response time must be <250ms:
+      - "http.response_time.p95": 250
+scenarios:
+  - name: "Get Message"
+    flow:
+    - get:
+        url: "/message"
