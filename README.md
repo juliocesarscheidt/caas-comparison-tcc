@@ -31,8 +31,8 @@ for I in 0 1; do
   # first and second sequences of tests with 30 RPS and total of 9.000 requests
   sed -i "s/{{API_ENDPOINT}}/${API_ENDPOINT}/; s/{{REQUESTS_PER_SECOND}}/30/; s/{{REQUESTS_TOTAL}}/9000/" load-tests/load-test.yml
   # execute tests and generate the report
-  artillery run load-tests/load-test.yml --output load-tests/$TEST_TYPE/$TEST_TYPE-$I.json
-  artillery report load-tests/$TEST_TYPE/$TEST_TYPE-$I.json
+  artillery run load-tests/load-test.yml --output load-tests/$TEST_TYPE/result-$I.json
+  artillery report load-tests/$TEST_TYPE/result-$I.json
   rm -f load-tests/load-test.yml
 done
 
@@ -42,8 +42,8 @@ for I in 2; do
   # third sequence of tests with 60 RPS and total of 18.000 requests
   sed -i "s/{{API_ENDPOINT}}/${API_ENDPOINT}/; s/{{REQUESTS_PER_SECOND}}/60/; s/{{REQUESTS_TOTAL}}/18000/" load-tests/load-test.yml
   # execute tests and generate the report
-  artillery run load-tests/load-test.yml --output load-tests/$TEST_TYPE/$TEST_TYPE-$I.json
-  artillery report load-tests/$TEST_TYPE/$TEST_TYPE-$I.json
+  artillery run load-tests/load-test.yml --output load-tests/$TEST_TYPE/result-$I.json
+  artillery report load-tests/$TEST_TYPE/result-$I.json
   rm -f load-tests/load-test.yml
 done
 ```
