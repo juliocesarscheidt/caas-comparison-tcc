@@ -10,6 +10,8 @@ Check here: [ACI](./terraform/aci/README.md)
 
 ## Performance comparison using Artillery
 
+There will be three sequences of tests, with 600 seconds of duration.
+
 First and second sequences of tests with 30 RPS and total of 9.000 requests.
 
 Third sequence of tests with 60 RPS and total of 18.000 requests.
