@@ -15,7 +15,7 @@ First and second sequences of tests with 30 RPS and total of 9.000 requests.
 Third sequence of tests with 60 RPS and total of 18.000 requests.
 
 ```bash
-API_ENDPOINT="http://<LB_DNS_OR_IP>/api/v1/message"
+export API_ENDPOINT="http://<LB_DNS_OR_IP>/api/v1/message"
 
 for I in 0 1; do
   echo "load testing - sequence $I"
