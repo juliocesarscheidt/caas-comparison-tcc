@@ -40,7 +40,7 @@ if __name__ == '__main__':
         'result_index': result_index,
         'total_requests': total_requests,
         'requests_success': requests_success,
-        'requests_failure': requests_failure,
+        'requests_failure': requests_failure * 100,
         'error_rate': replace_dot_with_comma_for_csv(error_rate),
         'latency_min': replace_dot_with_comma_for_csv(latency_min),
         'latency_max': replace_dot_with_comma_for_csv(latency_max),
