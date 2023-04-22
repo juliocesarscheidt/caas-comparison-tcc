@@ -54,7 +54,7 @@ if __name__ == '__main__':
   df.sort_values(by=["result_index"], inplace=True)
   df = df.rename(columns={
     "test_type": "Provedor",
-    "result_index": "Sequencia de Testes",
+    "result_index": "Sequência de Testes",
     "total_requests": "Total Requests",
     "requests_success": "Requests Sucesso",
     "requests_failure": "Requests Falha",

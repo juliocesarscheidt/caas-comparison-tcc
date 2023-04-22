@@ -1,4 +1,4 @@
-Provedor,Sequencia de Testes,Total Requests,Requests Sucesso,Requests Falha,Taxa de Erro %,Latência Mínima (ms),Latência Máxima (ms),Latência Mediana (ms),p90 (ms),p95 (ms),p99 (ms)
+Provedor,Sequência de Testes,Total Requests,Requests Sucesso,Requests Falha,Taxa de Erro %,Latência Mínima (ms),Latência Máxima (ms),Latência Mediana (ms),p90 (ms),p95 (ms),p99 (ms)
 ACI,1ª Sequência,9000,9000,0,"0,0","199,0","723,0","247,2","252,2","257,3","267,8"
 ECS,1ª Sequência,9000,9000,0,"0,0","238,0","747,0","257,3","262,5","262,5","278,7"
 ACI,2ª Sequência,9000,9000,0,"0,0","205,0","888,0","247,2","252,2","257,3","278,7"
