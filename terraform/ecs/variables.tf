@@ -18,7 +18,7 @@ variable "api_version" {
 
 variable "api_replicas_count" {
   type        = number
-  default     = 1
+  default     = 3
   description = "API replicas count"
 }
 
