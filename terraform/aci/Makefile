@@ -123,6 +123,15 @@ tf-refresh:
 logs:
 	az container logs --resource-group $(RESOURCE_GROUP) --name $(API_NAME) --follow
 
+## tf-deploy: Call all steps related to deployment
+.PHONY: tf-deploy
+tf-deploy:
+	make push-image
+	make tf-init
+	make tf-plan
+	make tf-apply
+	make tf-output
+
 ## tf-destroy: Destroy Terraform resources and then Azure resources
 .PHONY: tf-destroy
 tf-destroy:

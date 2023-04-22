@@ -15,14 +15,16 @@ Check here: [ACI](./terraform/aci/README.md)
 ## Performance comparison using Artillery
 
 There will be three sequences of tests, with 600 seconds of duration.
-- First and second sequences of tests with 30 RPS and total of 9.000 requests.
-- Third sequence of tests with 60 RPS and total of 18.000 requests.
+
+- First, second and third sequences of tests with 30 RPS and total of 9.000 requests each.
+
+- Fourth and fifth sequence of tests with 60 RPS and total of 18.000 requests each.
 
 ```bash
 export API_ENDPOINT=$(echo "http://<LB_DNS_OR_IP>/api/v1" | sed -r 's/\//\\\//gm')
 export TEST_TYPE="<ecs|aci>" # for aws ecs or azure aci
 
-for I in 0 1; do
+for I in 0 1 2; do
   echo "load testing - sequence $I"
   cp load-tests/load-test-template.yml load-tests/load-test.yml
   # first and second sequences of tests with 30 RPS and total of 9.000 requests
@@ -33,7 +35,7 @@ for I in 0 1; do
   rm -f load-tests/load-test.yml
 done
 
-for I in 2; do
+for I in 3 4; do
   echo "load testing - sequence $I"
   cp load-tests/load-test-template.yml load-tests/load-test.yml
   # third sequence of tests with 60 RPS and total of 18.000 requests

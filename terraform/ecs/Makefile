@@ -126,6 +126,15 @@ logs:
 		--no-paginate --query results \
 		--output text --query-id "$$QUERY_ID"
 
+## tf-deploy: Call all steps related to deployment
+.PHONY: tf-deploy
+tf-deploy:
+	make push-image
+	make tf-init
+	make tf-plan
+	make tf-apply
+	make tf-output
+
 ## tf-destroy: Destroy Terraform resources and then aws resources
 .PHONY: tf-destroy
 tf-destroy:
