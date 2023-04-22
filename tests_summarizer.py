@@ -56,6 +56,6 @@ if __name__ == '__main__':
   df.to_csv(
     f"tests_results_{TEST_TYPE}.csv",
     index=False,
-    sep=";",
+    sep=",",
     encoding="utf-8",
   )
