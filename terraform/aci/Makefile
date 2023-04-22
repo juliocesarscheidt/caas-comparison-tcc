@@ -130,7 +130,6 @@ tf-deploy:
 	make tf-init
 	make tf-plan
 	make tf-apply
-	make tf-output
 
 ## tf-destroy: Destroy Terraform resources and then Azure resources
 .PHONY: tf-destroy
