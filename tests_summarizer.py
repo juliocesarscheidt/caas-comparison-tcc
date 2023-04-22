@@ -2,8 +2,8 @@ import glob
 import json
 import pandas as pd
 
-def replace_dot_with_comma_for_csv(value) -> str:
-  rounded_value = float('%.4f' % value)
+def replace_dot_with_comma_for_csv(value: str, places: int = 4) -> str:
+  rounded_value = float(f'%.{places}f' % value)
   return str(rounded_value).replace('.', ',')
 
 if __name__ == '__main__':
@@ -40,7 +40,7 @@ if __name__ == '__main__':
         'total_requests': total_requests,
         'requests_success': requests_success,
         'requests_failure': requests_failure,
-        'error_rate': replace_dot_with_comma_for_csv(error_rate * 100),
+        'error_rate': str(replace_dot_with_comma_for_csv(error_rate * 100, 2)) + '%',
         'latency_min': replace_dot_with_comma_for_csv(latency_min),
         'latency_max': replace_dot_with_comma_for_csv(latency_max),
         'latency_median': replace_dot_with_comma_for_csv(latency_median),
