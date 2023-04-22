@@ -53,6 +53,7 @@ if __name__ == '__main__':
   print(result_dataset)
   # generate a csv from dataset
   df = pd.DataFrame(data=result_dataset)
+  df.sort_values(by=["result_index"], inplace=True)
   df.to_csv(
     f"tests_results_{TEST_TYPE}.csv",
     index=False,
