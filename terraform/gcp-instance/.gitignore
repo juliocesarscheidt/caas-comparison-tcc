@@ -1,0 +1,10 @@
+.terraform
+*.tfstate*
+output.json
+*.tfvars
+!sample.tfvars
+tfplan
+.terraform*
+.terraform.lock.hcl
+GOOGLE_CLOUD_KEYFILE_JSON.json
+*.pem
