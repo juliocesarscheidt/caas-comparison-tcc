@@ -12,6 +12,12 @@ make
 ```bash
 cd terraform/aci
 
+# https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/service_principal_client_secret#configuring-the-service-principal-in-terraform
+export ARM_CLIENT_ID="ARM_CLIENT_ID"
+export ARM_CLIENT_SECRET="ARM_CLIENT_SECRET"
+export ARM_TENANT_ID="ARM_TENANT_ID"
+export ARM_SUBSCRIPTION_ID="ARM_SUBSCRIPTION_ID"
+
 # create the ACR repository, login into the ACR, pull image from DockerHub and pushes the image to ACR
 make push-image
 
