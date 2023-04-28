@@ -17,12 +17,6 @@ import (
 	"github.com/sirupsen/logrus"
 )
 
-// Message is the global message received through environment variable
-var Message string
-
-// Environment is the global environment received through environment variable
-var Environment string
-
 var (
 	logger                 = logrus.New()
 	endpointCounterMetrics = promauto.NewCounterVec(
@@ -45,6 +39,10 @@ var (
 		},
 		[]string{"status", "method", "path"},
 	)
+	// Message is the global message received through environment variable
+	Message string
+	// Environment is the global environment received through environment variable
+	Environment string
 )
 
 func init() {
