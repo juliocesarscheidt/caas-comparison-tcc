@@ -16,9 +16,9 @@ Check here: [ACI](./terraform/aci/README.md)
 
 There will be three sequences of tests, with 600 seconds of duration.
 
-- First, second and third sequences of tests with 30 RPS and total of 9.000 requests each.
+- First, second and third sequences of tests with 100 RPS and total of 30.000 requests each.
 
-- Fourth and fifth sequence of tests with 60 RPS and total of 18.000 requests each.
+- Fourth and fifth sequence of tests with 500 RPS and total of 150.000 requests each.
 
 ```bash
 export API_ENDPOINT=$(echo "http://<LB_DNS_OR_IP>/api/v1" | sed -r 's/\//\\\//gm')
@@ -27,8 +27,8 @@ export TEST_TYPE="<ecs|aci>" # for aws ecs or azure aci
 for I in 0 1 2; do
   echo "load testing - sequence $I"
   cp load-test-template.yml load-test-$TEST_TYPE.yml
-  # first and second sequences of tests with 30 RPS and total of 9.000 requests
-  sed -i "s/{{API_ENDPOINT}}/${API_ENDPOINT}/; s/{{REQUESTS_PER_SECOND}}/30/; s/{{REQUESTS_TOTAL}}/9000/" load-test-$TEST_TYPE.yml
+  # first and second sequences of tests with 100 RPS and total of 9.000 requests
+  sed -i "s/{{API_ENDPOINT}}/${API_ENDPOINT}/; s/{{REQUESTS_PER_SECOND}}/100/; s/{{REQUESTS_TOTAL}}/30000/" load-test-$TEST_TYPE.yml
   # execute tests and generate HTML report
   mkdir -p $TEST_TYPE/
   artillery run load-test-$TEST_TYPE.yml --output $TEST_TYPE/result-$I.json
@@ -39,8 +39,8 @@ done
 for I in 3 4; do
   echo "load testing - sequence $I"
   cp load-test-template.yml load-test-$TEST_TYPE.yml
-  # third sequence of tests with 60 RPS and total of 18.000 requests
-  sed -i "s/{{API_ENDPOINT}}/${API_ENDPOINT}/; s/{{REQUESTS_PER_SECOND}}/60/; s/{{REQUESTS_TOTAL}}/18000/" load-test-$TEST_TYPE.yml
+  # third sequence of tests with 500 RPS and total of 18.000 requests
+  sed -i "s/{{API_ENDPOINT}}/${API_ENDPOINT}/; s/{{REQUESTS_PER_SECOND}}/500/; s/{{REQUESTS_TOTAL}}/150000/" load-test-$TEST_TYPE.yml
   # execute tests and generate HTML report
   mkdir -p $TEST_TYPE/
   artillery run load-test-$TEST_TYPE.yml --output $TEST_TYPE/result-$I.json
