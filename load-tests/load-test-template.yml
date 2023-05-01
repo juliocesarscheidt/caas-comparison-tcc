@@ -1,5 +1,8 @@
 config:
   target: "{{API_ENDPOINT}}"
+  http:
+    # Responses have to be sent within 1 seconds, or an `ETIMEDOUT` error gets raised.
+    timeout: 1
   phases:
     - name: Sustained load
       duration: 300

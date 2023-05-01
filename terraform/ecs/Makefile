@@ -88,7 +88,7 @@ tf-lint:
 tf-plan: tf-validate tf-lint tf-fmt
 	terraform plan \
 		-out=tfplan \
-		-var-file=variables.tfvars \
+		-var-file=terraform.tfvars \
 		-var aws_region="$(AWS_DEFAULT_REGION)" \
 		-var registry_url="$(REGISTRY_URL)" \
 		-var api_name="$(API_NAME)" \
@@ -110,7 +110,7 @@ tf-output:
 ## tf-refresh: Refresh Terraform state
 .PHONY: tf-refresh
 tf-refresh:
-	terraform refresh -var-file=variables.tfvars
+	terraform refresh -var-file=terraform.tfvars
 
 ## logs: Logs from ECS
 .PHONY: logs
@@ -138,7 +138,7 @@ tf-deploy:
 .PHONY: tf-destroy
 tf-destroy:
 	terraform destroy \
-		-var-file=variables.tfvars \
+		-var-file=terraform.tfvars \
 		-var aws_region="$(AWS_DEFAULT_REGION)" \
 		-var registry_url="$(REGISTRY_URL)" \
 		-var api_name="$(API_NAME)" \

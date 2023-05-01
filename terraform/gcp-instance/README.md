@@ -19,6 +19,11 @@ scp -i private_key.pem ../../load-tests/load-test-template.yml google@$INSTANCE_
 ssh -i private_key.pem google@$INSTANCE_IP
 
 # execute load tests...
+# gather results
+for I in 0 1 2 3 4; do
+  scp -i private_key.pem google@$INSTANCE_IP:/home/google/ecs/result-$I.json ../../load-tests/ecs/result-$I.json
+  scp -i private_key.pem google@$INSTANCE_IP:/home/google/aci/result-$I.json ../../load-tests/aci/result-$I.json
+done
 
 # clean up
 terraform destroy -auto-approve
