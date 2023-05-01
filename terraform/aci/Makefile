@@ -93,7 +93,7 @@ tf-plan: tf-validate tf-lint tf-fmt
 		--name $(REGISTRY_USERNAME) --query passwords[0].value | sed 's/^"//; s/"$$//')"; \
 	terraform plan \
 		-out=tfplan \
-		-var-file=variables.tfvars \
+		-var-file=terraform.tfvars \
 		-var resource_group="$(RESOURCE_GROUP)" \
 		-var registry_username="$(REGISTRY_USERNAME)" \
 		-var registry_password="$${REGISTRY_PASSWORD}" \
@@ -116,7 +116,7 @@ tf-output:
 ## tf-refresh: Refresh Terraform state
 .PHONY: tf-refresh
 tf-refresh:
-	terraform refresh -var-file=variables.tfvars
+	terraform refresh -var-file=terraform.tfvars
 
 ## logs: Logs from container instance
 .PHONY: logs
@@ -137,7 +137,7 @@ tf-destroy:
 	export REGISTRY_PASSWORD="$$(az acr credential show --resource-group $(RESOURCE_GROUP) \
 		--name $(REGISTRY_USERNAME) --query passwords[0].value | sed 's/^"//; s/"$$//')"; \
 	terraform destroy \
-		-var-file=variables.tfvars \
+		-var-file=terraform.tfvars \
 		-var resource_group="$(RESOURCE_GROUP)" \
 		-var registry_username="$(REGISTRY_USERNAME)" \
 		-var registry_password="$${REGISTRY_PASSWORD}" \
